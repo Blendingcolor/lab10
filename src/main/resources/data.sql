@@ -14,3 +14,12 @@ VALUES
 ('Freddy', '2000-03-09', 5, 9),
 ('Lucky', '2000-06-24', 2, 10),
 ('Sly', '2002-06-08', 1, 10);
+
+INSERT INTO owners (first_name, last_name, address, city, telephone)
+VALUES
+('George', 'Franklin', '110 W. Liberty St.', 'Madison', '6085551023'),
+('Betty', 'Davis', '638 Cardinal Ave.', 'Sun Prairie', '6085551749'),
+('Eduardo', 'Rodriquez', '2693 Commerce St.', 'McFarland', '6085558763'),
+('Harold', 'Davis', '563 Friendly St.', 'Windsor', '6085553198'),
+('Peter', 'McTavish', '2387 Blackburn St.', 'Windsor', '6085552845'),
+('Jean', 'Fonda', '5590 Pompton St.', 'Providence', '6085552765');

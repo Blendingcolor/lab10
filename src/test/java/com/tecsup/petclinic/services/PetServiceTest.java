@@ -29,9 +29,7 @@ public class PetServiceTest {
         String NAME_EXPECTED = "Leo";
 
         Integer ID = 1;
-
         Pet pet = null;
-
         try {
             pet = this.petService.findById(ID);
         } catch (PetNotFoundException e) {
