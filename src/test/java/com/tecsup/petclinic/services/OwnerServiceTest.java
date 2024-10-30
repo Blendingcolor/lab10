@@ -96,6 +96,41 @@ public class OwnerServiceTest {
 	}
 
 	@Test
+	public void testUpdaterOwnerById() {
+
+		Integer ID = 1;
+		String up_firstName = "Abeliño";
+		String up_lastName = "Cuysiño";
+		String up_address = "La Molina";
+		String up_city = "Lima";
+		String up_telephone = "88888888";
+
+		Owner owner = null;
+
+		try {
+			owner = ownerService.findById(ID);
+		} catch (OwnerNotFoundException e) {
+			fail(e.getMessage());
+		}
+
+		owner.setFirstName(up_firstName);
+		owner.setLastName(up_lastName);
+		owner.setAddress(up_address);
+		owner.setCity(up_city);
+		owner.setTelephone(up_telephone);
+
+		Owner upgradeOwner = this.ownerService.update(owner);
+
+		assertEquals(up_firstName, upgradeOwner.getFirstName());
+		assertEquals(up_lastName, upgradeOwner.getLastName());
+		assertEquals(up_address, upgradeOwner.getAddress());
+		assertEquals(up_city, upgradeOwner.getCity());
+		assertEquals(up_telephone, upgradeOwner.getTelephone());
+
+	}
+
+
+	@Test
 	public void testDeleteOwner() {
 
 		String firstName = "Abel";
@@ -120,6 +155,27 @@ public class OwnerServiceTest {
 		} catch (OwnerNotFoundException e) {
 			assertTrue(true);
 		}
+
+	}
+
+	@Test
+	public void testDeleteOwnerByID() {
+
+		Integer ID = 1;
+
+		try {
+			ownerService.delete(ID);
+		} catch (OwnerNotFoundException e) {
+			fail(e.getMessage());
+		}
+
+		try {
+			ownerService.findById(ID);
+			assertTrue(false);
+		} catch (OwnerNotFoundException e) {
+			assertTrue(true);
+		}
+
 
 	}
 }
