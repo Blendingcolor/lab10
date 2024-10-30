@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.util.List;
 import java.util.Optional;
 
+import com.tecsup.petclinic.services.impl.PetServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -59,9 +60,6 @@ public class PetServiceMockitoTest {
 
     }
 
-    /**
-     *
-     */
     @Test
     public void testFindPetByName() {
 
@@ -77,9 +75,6 @@ public class PetServiceMockitoTest {
         assertEquals(petsExpected.size(), pets.size());
     }
 
-    /**
-     *
-     */
     @Test
     public void testFindPetByTypeId() {
 
@@ -95,9 +90,6 @@ public class PetServiceMockitoTest {
         assertEquals(petsExpected.size(), pets.size());
     }
 
-    /**
-     *
-     */
     @Test
     public void testFindPetByOwnerId() {
 
@@ -114,13 +106,6 @@ public class PetServiceMockitoTest {
 
     }
 
-    /**
-     * To get ID generate , you need
-     * setup in id primary key in your
-     * entity this annotation :
-     *
-     * @GeneratedValue(strategy = GenerationType.IDENTITY)
-     */
     @Test
     public void testCreatePet() {
 
@@ -141,10 +126,6 @@ public class PetServiceMockitoTest {
 
     }
 
-
-    /**
-     *
-     */
     @Test
     public void testUpdatePet() {
 
@@ -186,9 +167,6 @@ public class PetServiceMockitoTest {
         assertEquals(UP_TYPE_ID, upgradePet.getOwnerId());
     }
 
-    /**
-     *
-     */
     @Test
     public void testDeletePet() {
 
@@ -226,7 +204,6 @@ public class PetServiceMockitoTest {
         } catch (PetNotFoundException e) {
             assertTrue(true);
         }
-
     }
 
 }

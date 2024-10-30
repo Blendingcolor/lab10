@@ -29,14 +29,11 @@ public class OwnerServiceTest {
 		Owner owner = null;
 
 		try {
-
 			owner = ownerService.findById(ID);
-
 		} catch (OwnerNotFoundException e) {
 			fail(e.getMessage());
 		}
 		log.info("" + owner);
-
 		assertEquals(NAME, owner.getFirstName());
 
 	}
@@ -44,17 +41,15 @@ public class OwnerServiceTest {
 	@Test
 	public void testCreateOwer() {
 
-		String firstName = "Diego";
-		String lastName = "Becerra";
-		String address = "Santa Anita";
+		String firstName = "Abel";
+		String lastName = "Garcia";
+		String address = "La Molina";
 		String city = "Lima";
-		String telephone = "987654321";
+		String telephone = "912199999";
 
 		Owner owner = new Owner(firstName, lastName, address, city, telephone);
-
 		Owner petCreated = this.ownerService.create(owner);
-
-		log.info("PET CREATED :" + petCreated.toString());
+		log.info("OWNER CREATED :" + petCreated.toString());
 
 		assertNotNull(petCreated.getId());
 		assertEquals(firstName, petCreated.getFirstName());
@@ -62,46 +57,37 @@ public class OwnerServiceTest {
 		assertEquals(address, petCreated.getAddress());
 		assertEquals(city, petCreated.getCity());
 		assertEquals(telephone, petCreated.getTelephone());
-
 	}
 
 	@Test
 	public void testUpdateOwner() {
 
-		String firstName = "Diego";
-		String lastName = "Becerra";
-		String address = "Santa Anita";
+		String firstName = "Abel";
+		String lastName = "Garcia";
+		String address = "La Molina";
 		String city = "Lima";
-		String telephone = "987654321";
+		String telephone = "912199999";
 
-		String up_firstName = "Abel";
-		String up_lastName = "Santisteban";
-		String up_address = "El Callao";
-		String up_city = "Arequipa";
-		String up_telephone = "924619919";
+		String up_firstName = "Mauricio";
+		String up_lastName = "Becerra";
+		String up_address = "Chorrillos";
+		String up_city = "Lima";
+		String up_telephone = "916620659";
 
 		Owner owner = new Owner(firstName, lastName, address, city, telephone);
-
-		// ------------ Create ---------------
-
 		log.info(">" + owner);
 		Owner ownerCreated = this.ownerService.create(owner);
 		log.info(">>" + ownerCreated);
 
-		// ------------ Update ---------------
-
-		// Prepare data for update
 		ownerCreated.setFirstName(up_firstName);
 		ownerCreated.setLastName(up_lastName);
 		ownerCreated.setAddress(up_address);
 		ownerCreated.setCity(up_city);
 		ownerCreated.setTelephone(up_telephone);
 
-		// Execute update
 		Owner upgradeOwner = this.ownerService.update(ownerCreated);
 		log.info(">>>>" + upgradeOwner);
 
-		//            EXPECTED        ACTUAL
 		assertEquals(up_firstName, upgradeOwner.getFirstName());
 		assertEquals(up_lastName, upgradeOwner.getLastName());
 		assertEquals(up_address, upgradeOwner.getAddress());
@@ -112,27 +98,21 @@ public class OwnerServiceTest {
 	@Test
 	public void testDeleteOwner() {
 
-		String firstName = "Diego";
-		String lastName = "Becerra";
-		String address = "Santa Anita";
+		String firstName = "Abel";
+		String lastName = "Garcia";
+		String address = "La Molina";
 		String city = "Lima";
-		String telephone = "987654321";
-
-		// ------------ Create ---------------
+		String telephone = "912199999";
 
 		Owner owner = new Owner(firstName, lastName, address, city, telephone);
 		owner = this.ownerService.create(owner);
 		log.info("" + owner);
-
-		// ------------ Delete ---------------
 
 		try {
 			this.ownerService.delete(owner.getId());
 		} catch (OwnerNotFoundException e) {
 			fail(e.getMessage());
 		}
-
-		// ------------ Validation ---------------
 
 		try {
 			this.ownerService.findById(owner.getId());

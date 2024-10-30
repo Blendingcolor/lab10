@@ -23,3 +23,18 @@ VALUES
 ('Harold', 'Davis', '563 Friendly St.', 'Windsor', '6085553198'),
 ('Peter', 'McTavish', '2387 Blackburn St.', 'Windsor', '6085552845'),
 ('Jean', 'Fonda', '5590 Pompton St.', 'Providence', '6085552765');
+
+INSERT INTO vets (first_name, last_name)
+VALUES
+('James', 'Carter'),
+('Helen', 'Leary'),
+('Linda', 'Douglas'),
+('Rafael', 'Ortega'),
+('Henry', 'Stevens'),
+('Sharon', 'Jenkins');
+
+INSERT INTO specialties (name, office, h_open, h_close)
+VALUES
+('radiology', 'Farewell', 8, 18),
+('surgery', 'Maryland', 8, 12),
+('dentistry', 'Terranova', 9, 19)
